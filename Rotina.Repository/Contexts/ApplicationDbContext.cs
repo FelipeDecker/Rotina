@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Rotina.Domain.Entities;
+using Rotina.Repository.Models;
 
 namespace Rotina.Repository.Contexts
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -17,6 +19,7 @@ namespace Rotina.Repository.Contexts
 
         public virtual DbSet<UserEntity> User { get; set; }
         public virtual DbSet<LoginEntity> Login { get; set; }
+        public virtual DbSet<ApplicationUserModel> ApplicationUser { get; set; }
 
         #endregion
 

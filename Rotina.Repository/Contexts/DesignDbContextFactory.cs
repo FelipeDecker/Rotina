@@ -16,7 +16,7 @@ namespace Rotina.Repository.Contexts
 
             var configuration = new ConfigurationBuilder().AddJsonFile(fileName).Build();
 
-            var connectionString = configuration.GetConnectionString("TestingConnection");
+            var connectionString = configuration.GetConnectionString("TestingIdentityConnection");
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             builder.UseNpgsql(connectionString);
